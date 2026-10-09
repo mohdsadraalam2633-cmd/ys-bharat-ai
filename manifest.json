@@ -1,12 +1,12 @@
 {
-  "name": "YS Bharat AI",
-  "short_name": "YS AI",
+  "name": "YS Bharat AI - Bharat Ka Apna AI Studio",
+  "short_name": "YS Bharat AI",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#FF9933",
   "icons": [
-    {"src": "icon-512.png","sizes": "192x192","type": "image/png"},
-    {"src": "icon-512.png","sizes": "512x512","type": "image/png"}
+    {"src": "IMG-20261007-WA1987.jpg", "sizes": "192x192", "type": "image/jpeg"},
+    {"src": "IMG-20261007-WA1987.jpg", "sizes": "512x512", "type": "image/jpeg"}
   ]
 }
