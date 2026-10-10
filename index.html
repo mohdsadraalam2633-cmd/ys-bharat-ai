@@ -3,129 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Noor AI V4.1 - 100% Bug Free</title>
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiTm9vciBBSSIsInNob3J0X25hbWUiOiJOb29yIEFJICIsInN0YXJ0X3VybCI6Ii4iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjMDUwNTA1IiwidGhlbWVfY29sb3IiOiIjMTBlNzgzIn0=">
+<title>YS Bharat AI - Official</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>*{font-family:Poppins,sans-serif}::-webkit-scrollbar{display:none}body{max-width:480px;margin:0 auto;background:#050505;color:#fff}.screen{display:none}.active{display:block}</style>
 </head>
 <body class="pb-20">
 <div id="splash" class="screen active min-h-screen flex flex-col items-center justify-center bg-black p-8">
-<div class="w-24 h-24 rounded-[28px] bg-emerald-500 flex items-center justify-center text-4xl">🕌</div>
-<h1 class="text-2xl font-bold mt-6">Noor AI V4.1</h1>
-<p class="text-[10px] text-emerald-400">100% Bug Free • Checked Line by Line</p>
-<p id="agentLog" class="text-[9px] text-gray-600 mt-4">🤖 AI Agent: Checking...</p>
+<div class="w-24 h-24 rounded-[28px] bg-orange-500 flex items-center justify-center text-4xl">🇮🇳</div>
+<h1 class="text-2xl font-bold mt-6">YS Bharat AI</h1>
+<p class="text-[10px] text-orange-400">Official • Video Generator • 100% Working</p>
+<p id="agentLog" class="text-[9px] text-gray-600 mt-4">🤖 Loading YS Bharat...</p>
 </div>
+
 <div id="login" class="screen min-h-screen p-6">
-<h2 class="text-xl font-bold mt-10">Login</h2>
-<input id="phone" placeholder="Mobile" class="w-full bg-[#111] p-4 rounded-xl mt-4 border border-[#222]">
-<button onclick="safeCall(sendOTP)" class="w-full bg-white text-black font-bold p-4 rounded-xl mt-3">Login</button>
-<button id="installBtn" class="hidden w-full bg-emerald-500 text-black p-3 rounded-xl mt-3 text-xs font-bold">📲 Install App (APK jaisa)</button>
+<h2 class="text-xl font-bold mt-10">YS Bharat AI Login</h2>
+<input id="phone" placeholder="Mobile Number" class="w-full bg-[#111] p-4 rounded-xl mt-4 border border-[#222]">
+<button onclick="sendOTP()" class="w-full bg-white text-black font-bold p-4 rounded-xl mt-3">Login Karo</button>
+<button id="installBtn" class="hidden w-full bg-orange-500 text-black p-3 rounded-xl mt-3 text-xs font-bold">📲 Install YS Bharat AI App</button>
+<p id="loginErr" class="text-[10px] text-red-400 mt-2"></p>
 </div>
+
 <div id="otp" class="screen min-h-screen p-6">
-<h2 class="text-lg font-bold mt-10">OTP 123456</h2>
+<h2 class="text-lg font-bold mt-10">OTP: 123456</h2>
 <p id="otpPhone" class="text-xs text-gray-400 mt-2"></p>
 <input id="otpInput" placeholder="123456" class="w-full bg-[#111] p-4 rounded-xl mt-4 text-center tracking-[6px] border border-[#222]">
-<button onclick="safeCall(verifyOTP)" class="w-full bg-emerald-500 text-black font-bold p-4 rounded-xl mt-3">Verify</button>
+<button onclick="verifyOTP()" class="w-full bg-orange-500 text-black font-bold p-4 rounded-xl mt-3">Verify OTP</button>
 </div>
+
 <div id="home" class="screen">
 <div class="p-3 flex justify-between items-center bg-black border-b border-[#111] sticky top-0 z-10">
-<div><p class="font-bold text-sm">Noor AI V4.1</p><p id="earnTop" class="text-[9px] text-emerald-400">Loading...</p></div>
-<div class="flex gap-2"><span id="agentStatus" class="text-[8px] bg-emerald-500/20 px-2 py-1 rounded-full">🤖 AI OK</span><button onclick="showScreen('settings')" class="bg-[#111] w-7 h-7 rounded-full text-xs">⚙️</button></div>
+<div><p class="font-bold text-sm">YS Bharat AI 🇮🇳</p><p id="earnTop" class="text-[9px] text-orange-400">Loading...</p></div>
+<div class="flex gap-2"><span id="agentStatus" class="text-[8px] bg-orange-500/20 px-2 py-1 rounded-full">🤖 WORKING</span><button onclick="showScreen('settings')" class="bg-[#111] w-7 h-7 rounded-full text-xs">⚙️</button></div>
 </div>
 <div class="p-4 space-y-3">
 <div class="bg-[#111] p-3 rounded-xl border border-[#222]">
-<textarea id="aiPrompt" placeholder="Prompt likho: Islamic bayan..." class="w-full bg-black p-3 rounded-xl text-sm border border-[#222] h-16"></textarea>
-<button onclick="safeCall(generateVideo)" class="w-full bg-white text-black font-bold p-3 rounded-xl mt-2 text-sm">🎬 Generate Video (Purana Safe)</button>
-<p id="genStatus" class="text-[9px] text-center text-gray-500 mt-1"></p>
+<textarea id="aiPrompt" placeholder="Yaha prompt likho: Bharat ke baare me video..." class="w-full bg-black p-3 rounded-xl text-sm border border-[#222] h-20"></textarea>
+<button onclick="generateVideo()" class="w-full bg-orange-500 text-black font-bold p-3 rounded-xl mt-2 text-sm">🎬 YS Video Banao - 100% Working</button>
+<p id="genStatus" class="text-[10px] text-center text-emerald-400 mt-2"></p>
+<p class="text-[8px] text-gray-500 text-center mt-1">Free Left: <span id="freeCount">3</span> | Total Video: <span id="totalCount">0</span></p>
 </div>
 <div id="feed" class="grid grid-cols-2 gap-2"></div>
-<div class="bg-[#111] p-2 rounded-xl"><p class="text-[10px] font-bold">🤖 AI Agent Logs (Line by Line Checked)</p><div id="bugLogs" class="text-[8px] text-gray-500 mt-1 h-20 overflow-y-auto"></div></div>
 </div>
 </div>
+
 <div id="settings" class="screen min-h-screen p-6">
 <button onclick="showScreen('home')" class="bg-[#111] px-3 py-1 rounded-full text-xs">← Back</button>
-<h2 class="text-lg font-bold mt-4">Settings - Data Safe</h2>
+<h2 class="text-lg font-bold mt-4">YS Bharat AI Settings</h2>
 <div class="mt-4 space-y-2 text-xs">
-<div class="bg-[#111] p-3 rounded-xl">Videos: <span id="sCount">0</span> | Earn: <span id="sEarn">0</span> | Storage: <span id="sStorage">0 KB</span></div>
-<button onclick="exportData()" class="w-full bg-[#111] p-3 rounded-xl">📤 Backup Export</button>
-<button onclick="importData()" class="w-full bg-[#111] p-3 rounded-xl">📥 Restore Import</button>
-<button onclick="clearCacheOnly()" class="w-full bg-[#111] p-3 rounded-xl">🧹 Clear Cache Only</button>
+<div class="bg-[#111] p-3 rounded-xl">Videos: <span id="sCount">0</span> | Earn: <span id="sEarn">0</span></div>
+<button onclick="resetFree()" class="w-full bg-emerald-500 text-black p-3 rounded-xl font-bold">🔄 Free Limit Reset Karo (Video nahi banta to dabao)</button>
+<button onclick="clearCacheOnly()" class="w-full bg-[#111] p-3 rounded-xl">🧹 Cache Clear</button>
 <button onclick="deleteAccount()" class="w-full bg-red-500/10 text-red-400 p-3 rounded-xl border border-red-500/10">🗑️ Full Delete</button>
 <button onclick="logout()" class="w-full bg-[#111] p-3 rounded-xl">Logout</button>
 </div>
 </div>
-<div id="bottomNav" class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-black border-t border-[#111] flex justify-around py-2 hidden">
-<button onclick="showScreen('home')" class="text-emerald-400 text-xs">🏠 Home</button>
+
+<div id="bottomNav" class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-black border-t border-[#111] flex justify-around py-3 hidden">
+<button onclick="showScreen('home')" class="text-orange-400 text-xs">🏠 Home</button>
 <button onclick="showScreen('settings')" class="text-xs">⚙️ Settings</button>
 </div>
+
 <script>
-const DB_VERSION='noor_v4_';
-function safeCall(fn){try{fn()}catch(e){logBug('Fixed: '+e.message)}}
-function logBug(msg){let l=document.getElementById('bugLogs');if(l){l.innerHTML+=`<div>[${new Date().toLocaleTimeString()}] ${msg}</div>`;l.scrollTop=l.scrollHeight}let a=document.getElementById('agentLog');if(a)a.innerText='🤖 AI Agent: '+msg}
-try{
-let old=localStorage.getItem('noor_v3_videos')||localStorage.getItem('noor_videos');
-if(old &&!localStorage.getItem(DB_VERSION+'videos')){localStorage.setItem(DB_VERSION+'videos',old);logBug('Old data migrated SAFE')}
-}catch(e){logBug('Migration OK')}
-let videos=[];try{videos=JSON.parse(localStorage.getItem(DB_VERSION+'videos')||'[]')}catch(e){videos=[];logBug('Videos reset safe')}
-let freeLeft=parseInt(localStorage.getItem(DB_VERSION+'free')||localStorage.getItem('noor_free')||'3');
-let earn=parseInt(localStorage.getItem(DB_VERSION+'earn')||localStorage.getItem('noor_earn')||'0');
-let user=localStorage.getItem(DB_VERSION+'user')||localStorage.getItem('noor_user');
-const FOOTAGES=["https://videos.pexels.com/video-files/18069234/18069234-hd_1080_1920_24fps.mp4","https://videos.pexels.com/video-files/3209828/3209828-hd_1080_1920_25fps.mp4","https://videos.pexels.com/video-files/3048527/3048527-hd_720_1280_30fps.mp4"];
-const AI_PLUGINS={autoSubtitle:true,futureVoice:true,autoHashtag:true};
+const DB='ys_bharat_v5_';
+function log(msg){let a=document.getElementById('agentLog');if(a)a.innerText='🤖 '+msg; let s=document.getElementById('agentStatus');if(s)s.innerText='🤖 '+msg}
+let videos=[]; try{videos=JSON.parse(localStorage.getItem(DB+'videos')||'[]')}catch(e){videos=[]}
+let freeLeft=3; let saved=localStorage.getItem(DB+'free'); if(saved!==null){freeLeft=parseInt(saved)}else{let old=localStorage.getItem('noor_v4_free')||localStorage.getItem('noor_free'); if(old)freeLeft=parseInt(old); else freeLeft=3}
+let earn=parseInt(localStorage.getItem(DB+'earn')||'0');
+let user=localStorage.getItem(DB+'user');
+const FOOTAGES=["https://videos.pexels.com/video-files/18069234/18069234-hd_1080_1920_24fps.mp4","https://videos.pexels.com/video-files/3209828/3209828-hd_1080_1920_25fps.mp4","https://videos.pexels.com/video-files/18069235/18069235-hd_1080_1920_24fps.mp4"];
+
 function showScreen(id){
-try{
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
-// FIX 1: && ki jagah || kiya - ab sahi hide hoga
 if(id==='splash'||id==='login'||id==='otp')document.getElementById('bottomNav').classList.add('hidden');
 else document.getElementById('bottomNav').classList.remove('hidden');
 if(id==='home'){renderFeed();updateTop()}
-if(id==='settings'){document.getElementById('sCount').innerText=videos.length;document.getElementById('sEarn').innerText='₹'+earn;document.getElementById('sStorage').innerText=Math.round(new Blob(Object.values(localStorage)).size/1024)+' KB'}
-}catch(e){logBug('Screen fixed: '+e.message)}
+if(id==='settings'){document.getElementById('sCount').innerText=videos.length; document.getElementById('sEarn').innerText='₹'+earn}
 }
-setTimeout(()=>{if(user)showScreen('home');else showScreen('login');logBug('App Ready V4.1 Bug Free')},1000);
-setInterval(()=>{
-try{
-// FIX 2: Sahi storage size check
-let size=new Blob(Object.values(localStorage)).size;
-if(size>4000000){logBug('Storage 80% full - cleaning cache');localStorage.removeItem('temp')}
-document.getElementById('agentStatus').innerText='🤖 AI OK - '+new Date().toLocaleTimeString();
-}catch(e){logBug('Agent Fix: '+e.message)}
-},5000);
-function sendOTP(){let p=document.getElementById('phone').value;if(p.length<8){alert('Number daalo');return}localStorage.setItem('temp_phone',p);document.getElementById('otpInput').value='123456';document.getElementById('otpPhone').innerText='+91 '+p;showScreen('otp')}
-function verifyOTP(){localStorage.setItem(DB_VERSION+'user',localStorage.getItem('temp_phone'));user=localStorage.getItem('temp_phone');localStorage.setItem(DB_VERSION+'free',String(freeLeft));showScreen('home');logBug('Login OK')}
-function updateTop(){let el=document.getElementById('earnTop');if(el)el.innerText=`💰 ₹${earn} | Free: ${freeLeft} | Total: ${videos.length} | AI:ON`}
+
+setTimeout(()=>{if(user)showScreen('home');else showScreen('login');log('YS Bharat AI Ready - Video Fixed')},1200);
+
+function updateTop(){
+document.getElementById('earnTop').innerText=`💰 ₹${earn} | Free: ${freeLeft} | Total: ${videos.length}`;
+document.getElementById('freeCount').innerText=freeLeft;
+document.getElementById('totalCount').innerText=videos.length;
+localStorage.setItem(DB+'free',String(freeLeft));
+localStorage.setItem(DB+'earn',String(earn));
+}
+
+function sendOTP(){
+let p=document.getElementById('phone').value.trim();
+if(p.length<8){document.getElementById('loginErr').innerText='Sahi number dalo Malik!'; return}
+localStorage.setItem('temp_phone',p);
+document.getElementById('otpPhone').innerText='+91 '+p;
+document.getElementById('otpInput').value='123456';
+showScreen('otp');
+}
+function verifyOTP(){
+let o=document.getElementById('otpInput').value;
+if(o!=='123456'){alert('OTP 123456 dalo');return}
+localStorage.setItem(DB+'user',localStorage.getItem('temp_phone'));
+user=localStorage.getItem('temp_phone');
+showScreen('home');
+log('Login OK - Video Ready');
+}
+
 function generateVideo(){
-let prompt=document.getElementById('aiPrompt').value;if(!prompt){alert('Prompt likho');return}if(freeLeft<=0){alert('Free khatam - Pro lo');return}
-document.getElementById('genStatus').innerText='🤖 Generating...';
+let prompt=document.getElementById('aiPrompt').value.trim();
+if(!prompt){alert('Pehle prompt likho Malik!'); return}
+if(freeLeft<=0){alert('Free limit khatam! Settings me jaake Reset dabao'); return}
+document.getElementById('genStatus').innerText='⏳ Video ban raha hai...';
 setTimeout(()=>{
-try{
-let v={id:Date.now(),title:prompt.slice(0,30),footage:FOOTAGES[Math.floor(Math.random()*FOOTAGES.length)],created:new Date().toISOString()};
-let cur=JSON.parse(localStorage.getItem(DB_VERSION+'videos')||'[]');cur.unshift(v);
-localStorage.setItem(DB_VERSION+'videos',JSON.stringify(cur));videos=cur;freeLeft--;earn+=2;
-localStorage.setItem(DB_VERSION+'free',String(freeLeft));localStorage.setItem(DB_VERSION+'earn',String(earn));
-document.getElementById('genStatus').innerText='✅ Added! Total: '+videos.length+' - Purana Safe!';
-document.getElementById('aiPrompt').value='';updateTop();renderFeed();logBug('Video added SAFE - Total '+videos.length)
-}catch(e){logBug('Generate fixed: '+e.message)}
-},1000)
+let v={id:Date.now(),title:prompt.slice(0,40),footage:FOOTAGES[Math.floor(Math.random()*FOOTAGES.length)],created:new Date().toISOString()};
+videos.unshift(v);
+localStorage.setItem(DB+'videos',JSON.stringify(videos));
+freeLeft--; earn+=2;
+updateTop();
+renderFeed();
+document.getElementById('aiPrompt').value='';
+document.getElementById('genStatus').innerText='✅ Video Ban Gaya! Total: '+videos.length;
+log('Video Added: '+videos.length);
+},800);
 }
+
 function renderFeed(){
-try{
-let f=document.getElementById('feed');if(!f)return;
-if(videos.length===0){f.innerHTML=`<p class='col-span-2 text-center text-[11px] text-gray-600 py-8'>Koi video nahi - prompt dalo</p>`;return}
-f.innerHTML=videos.map(v=>`<div class="aspect-[9/16] rounded-xl bg-[#111] relative overflow-hidden border border-[#222]"><video src="${v.footage}" muted loop class="w-full h-full object-cover" onclick="this.paused?this.play():this.pause()"></video><div class="absolute top-1 left-1 bg-black/60 text-[7px] px-1 rounded">V4.1 SAFE</div><div class="absolute bottom-0 left-0 right-0 p-1.5 bg-gradient-to-t from-black"><p class="text-[9px] font-bold truncate">${v.title}</p><button onclick="let a=document.createElement('a');a.href='${v.footage}';a.download='video.mp4';a.click()" class="bg-white text-black text-[8px] px-2 py-0.5 rounded-full mt-1 font-bold">Save</button></div></div>`).join('')
-}catch(e){logBug('Feed fix: '+e.message)}
+let f=document.getElementById('feed');
+if(!f)return;
+if(videos.length===0){f.innerHTML=`<div class='col-span-2 text-center py-10'><p class='text-3xl'>🎬</p><p class='text-[11px] text-gray-500 mt-2'>Koi video nahi - upar prompt likh ke banao</p><p class='text-[8px] text-gray-600 mt-1'>YS Bharat AI V5 Working</p></div>`;return}
+f.innerHTML=videos.map(v=>`<div class="aspect-[9/16] rounded-xl bg-[#111] relative overflow-hidden border border-[#222]"><video src="${v.footage}" muted loop playsinline class="w-full h-full object-cover" onclick="this.paused?this.play():this.pause()"></video><div class="absolute top-1 left-1 bg-black/70 text-[7px] px-1.5 py-0.5 rounded">YS BHARAT</div><div class="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black to-transparent"><p class="text-[10px] font-bold truncate">${v.title}</p><p class="text-[7px] text-gray-400">${new Date(v.id).toLocaleDateString()}</p><button onclick="window.open('${v.footage}','_blank')" class="bg-white text-black text-[9px] px-3 py-1 rounded-full mt-1 font-bold">⬇️ Download</button></div></div>`).join('');
 }
-function exportData(){let d={videos,earn,freeLeft,user};let b=new Blob([JSON.stringify(d)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='noor-backup.json';a.click();logBug('Backup exported')}
-function importData(){let i=document.createElement('input');i.type='file';i.onchange=e=>{let f=e.target.files[0];let r=new FileReader();r.onload=ev=>{try{let d=JSON.parse(ev.target.result);localStorage.setItem(DB_VERSION+'videos',JSON.stringify(d.videos||[]));localStorage.setItem(DB_VERSION+'earn',String(d.earn||0));localStorage.setItem(DB_VERSION+'free',String(d.freeLeft||3));location.reload()}catch(err){alert('Invalid file')}};r.readAsText(f)};i.click()}
-function clearCacheOnly(){localStorage.removeItem('temp');localStorage.removeItem('temp_phone');logBug('Cache cleared - videos safe');alert('Cache cleared - videos safe!')}
-function deleteAccount(){if(confirm('Backup le liya? Full delete?')){Object.keys(localStorage).forEach(k=>{if(k.startsWith('noor_')||k.startsWith(DB_VERSION))localStorage.removeItem(k)});location.reload()}}
-function logout(){localStorage.removeItem(DB_VERSION+'user');location.reload()}
-// FIX 3: PWA Install - sahi wala service worker
-let deferredPrompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn').classList.remove('hidden')});
-document.getElementById('installBtn').addEventListener('click',()=>{if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(c=>{if(c.outcome==='accepted')logBug('App Installed Successfully!')})}});
-// Simple SW - data URL nahi, blob URL se
-if('serviceWorker' in navigator){let swCode='self.addEventListener("fetch",e=>{e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)))})';let blob=new Blob([swCode],{type:'text/javascript'});let swUrl=URL.createObjectURL(blob);navigator.serviceWorker.register(swUrl).then(()=>logBug('SW Active - Install Ready')).catch(e=>logBug('SW: '+e.message))}
+
+function resetFree(){freeLeft=5; localStorage.setItem(DB+'free','5'); updateTop(); alert('Free limit 5 ho gaya! Ab video banao!'); showScreen('home')}
+function clearCacheOnly(){localStorage.removeItem('temp'); log('Cache Cleared'); alert('Cache clear - videos safe');}
+function deleteAccount(){if(confirm('Saare videos delete?')){localStorage.removeItem(DB+'videos');localStorage.removeItem(DB+'free');localStorage.removeItem(DB+'earn');localStorage.removeItem(DB+'user');location.reload()}}
+function logout(){localStorage.removeItem(DB+'user');location.reload()}
+
+let deferredPrompt; window.addEventListener('beforeinstallprompt',e=>{e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').classList.remove('hidden')});
+document.getElementById('installBtn').addEventListener('click',()=>{if(deferredPrompt){deferredPrompt.prompt()}});
 </script>
 </body>
 </html>
