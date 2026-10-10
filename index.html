@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YS Bharat AI - 20 Category FINAL</title>
+<title>YS Bharat AI - Official - 20 Category Working</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
-<style>*{font-family:'Poppins',sans-serif}::-webkit-scrollbar{display:none}</style>
-<meta name="theme-color" content="#FF9933">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>*{font-family:'Poppins',sans-serif}::-webkit-scrollbar{display:none}body{max-width:480px;margin:0 auto;background:#0F172A;color:white}</style>
 </head>
-<body class="bg-[#0F172A] text-white max-w-[480px] mx-auto min-h-screen">
-<div id="app" class="pb-28"></div>
+<body class="min-h-screen pb-28">
+<div id="app"></div>
 <script>
 const CATEGORIES=[
 {id:'Bhakti',icon:'🕉️',color:'from-orange-500 to-yellow-500'},
@@ -34,57 +33,44 @@ const CATEGORIES=[
 {id:'Kids',icon:'👶',color:'from-yellow-400 to-pink-400'},
 {id:'Animals',icon:'🐶',color:'from-amber-500 to-orange-500'}
 ];
-const VOICES=["Hindi Male","Hindi Female","Haryanvi","Bhojpuri","Energetic","Punjabi"];
-let credits=parseInt(localStorage.getItem('ys_credits')||'10');
-let videos=JSON.parse(localStorage.getItem('ys_videos')||'[]');
-let liked=JSON.parse(localStorage.getItem('ys_liked')||'[]');
-let saved=JSON.parse(localStorage.getItem('ys_saved')||'[]');
-function saveAll(){localStorage.setItem('ys_videos',JSON.stringify(videos));localStorage.setItem('ys_credits',credits+'');localStorage.setItem('ys_liked',JSON.stringify(liked));localStorage.setItem('ys_saved',JSON.stringify(saved));}
-
-function renderHome(filtered=null){
-let list = filtered || videos;
+const SAMPLE=[
+{id:1,title:'Har Har Mahadev Status Viral',category:'Bhakti',views:3240,likes:189,footage:'https://videos.pexels.com/video-files/3202634/3202634-hd_1080_1920_30fps.mp4',thumb:'https://picsum.photos/seed/bhakti/360/640'},
+{id:2,title:'Business Idea 500 Rupye Se',category:'Business',views:1890,likes:145,footage:'https://videos.pexels.com/video-files/18069234/18069234-hd_1080_1920_30fps.mp4',thumb:'https://picsum.photos/seed/bus/360/640'},
+{id:3,title:'Desi Comedy - Biwi Ke Taane',category:'Comedy',views:8100,likes:520,footage:'https://videos.pexels.com/video-files/3202634/3202634-hd_1080_1920_30fps.mp4',thumb:'https://picsum.photos/seed/com/360/640'},
+{id:4,title:'SIP Se 1 Crore Kaise Banaye',category:'Finance',views:2560,likes:230,footage:'https://videos.pexels.com/video-files/18069234/18069234-hd_1080_1920_30fps.mp4',thumb:'https://picsum.photos/seed/fin/360/640'},
+{id:5,title:'Gaming - Free Fire Trick',category:'Gaming',views:5300,likes:410,footage:'https://videos.pexels.com/video-files/3202634/3202634-hd_1080_1920_30fps.mp4',thumb:'https://picsum.photos/seed/game/360/640'},
+{id:6,title:'Food Recipe 2 Min',category:'Food',views:1500,likes:99,footage:'https://videos.pexels.com/video-files/18069234/18069234-hd_1080_1920_30fps.mp4',thumb:'https://picsum.photos/seed/food/360/640'}
+];
+let CURRENT='All'; let SEARCH=''; let videos=JSON.parse(localStorage.getItem('ys_videos_final')||'null') || [...SAMPLE]; let credits=parseInt(localStorage.getItem('ys_credits_final')||'10');
+function save(){localStorage.setItem('ys_videos_final',JSON.stringify(videos));localStorage.setItem('ys_credits_final',credits+'');}
+function getFiltered(){let l=videos; if(CURRENT!=='All') l=l.filter(v=>v.category===CURRENT); if(SEARCH) l=l.filter(v=>v.title.toLowerCase().includes(SEARCH.toLowerCase())); return l;}
+function renderHome(){
+let list=getFiltered();
 document.getElementById('app').innerHTML=`
 <div class="p-4 space-y-4">
-<div class="flex justify-between items-center">
-<div class="flex gap-2 items-center"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF9933] via-white to-[#138808] flex items-center justify-center font-black text-black">YS</div><div><b class="text-sm">YS Bharat AI ✅ 20 Category</b><p class="text-[10px] opacity-60">${credits} Credits • ${videos.length} Videos • Bug Fixed</p></div></div>
-<span class="text-[9px] px-2 py-1 rounded-full bg-green-500/20 border border-green-500">LIVE</span>
+<div class="flex justify-between items-center"><div class="flex gap-2 items-center"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF9933] via-white to-[#138808] flex items-center justify-center font-black text-black">YS</div><div><p class="font-extrabold text-[14px]">YS Bharat AI 🇮🇳 FINAL</p><p class="text-[9px] opacity-60">20 Category • No Bug • Asli App</p></div></div><div class="text-[10px] px-3 py-1 rounded-full bg-green-600 font-bold">${credits} Credits</div></div>
+<div class="relative"><input id="s" value="${SEARCH}" oninput="onSearch(this.value)" placeholder="🔍 Search - Finance, Bhakti, Gaming..." class="w-full p-3.5 rounded-full bg-white/10 border border-white/10 text-[13px] outline-none"></div>
+<div class="bg-gradient-to-r from-[#FF9933]/20 via-white/10 to-[#138808]/20 rounded-2xl p-3 border border-[#FF9933]/30"><p class="text-[12px] font-bold">🔥 ${CURRENT==='All'?'All 20 Categories':CURRENT} - ${list.length} Videos</p><p class="text-[10px] opacity-70 mt-1">All dabao toh sab, koi category dabao toh sirf uska - 100% lock!</p></div>
+<div class="grid grid-cols-4 gap-2">
+<button onclick="setFilter('All')" class="p-2.5 rounded-xl ${CURRENT==='All'?'bg-white text-black ring-2 ring-[#FF9933]':'bg-white/10'} flex flex-col items-center"><span>🌍</span><span class="text-[8px] font-bold">All</span><span class="text-[6px]">${videos.length}</span></button>
+${CATEGORIES.map(c=>{let cnt=videos.filter(v=>v.category===c.id).length; return `<button onclick="setFilter('${c.id}')" class="p-2.5 rounded-xl bg-gradient-to-br ${c.color} ${CURRENT===c.id?'ring-2 ring-white':''} flex flex-col items-center text-black"><span>${c.icon}</span><span class="text-[7px] font-bold">${c.id}</span><span class="text-[6px]">${cnt}</span></button>`}).join('')}
 </div>
-
-<div class="bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-[24px] p-[1px]"><div class="bg-[#0F172A] rounded-[23px] p-4 flex justify-between"><div><h2 class="text-[16px] font-black">20 Category Me Video Banao</h2><p class="text-xs opacity-70">Har icon kaam karega - Click karo!</p><button onclick="renderCreate()" class="mt-2 px-5 py-2 rounded-full bg-white text-black font-bold text-xs">+ Banao</button></div><div class="text-3xl">🎬</div></div></div>
-
-<h3 class="font-bold text-sm">📂 20 Categories - Sab Kaam Karega 👇</h3>
-<div class="grid grid-cols-4 gap-2">${CATEGORIES.map(c=>`<button onclick="filterCat('${c.id}')" class="p-3 rounded-xl bg-gradient-to-br ${c.color} text-black text-center active:scale-95 transition"><div class="text-[20px]">${c.icon}</div><div class="text-[9px] font-black mt-1">${c.id}</div></button>`).join('')}</div>
-
-<div class="flex gap-2">
-<button onclick="renderHome()" class="px-3 py-1.5 rounded-full bg-white text-black text-[10px] font-bold">All Videos</button>
-<button onclick="showSaved()" class="px-3 py-1.5 rounded-full bg-white/10 text-[10px]">💾 Saved ${saved.length}</button>
-<button onclick="showLiked()" class="px-3 py-1.5 rounded-full bg-white/10 text-[10px]">❤️ Liked ${liked.length}</button>
-<button onclick="if(filtered) renderHome()" class="px-3 py-1.5 rounded-full bg-white/10 text-[10px] ${filtered?'':'hidden'}">❌ Clear Filter</button>
+<div class="grid grid-cols-2 gap-3">
+${list.map(v=>`<div onclick="openVideo(${v.id})" class="aspect-[9/16] rounded-2xl bg-white/5 border overflow-hidden relative"><img src="${v.thumb}" class="w-full h-full object-cover absolute inset-0"/><div class="absolute top-2 left-2 text-[8px] px-2 py-1 rounded-full bg-black/80">${v.category}</div><div class="absolute bottom-0 w-full p-2 bg-gradient-to-t from-black"><p class="text-[11px] font-bold">${v.title}</p><p class="text-[9px] opacity-70">${v.views} views • ❤️ ${v.likes}</p></div></div>`).join('')}
+${list.length===0?`<div class="col-span-2 p-10 text-center bg-white/5 rounded-2xl border border-dashed"><p>😔</p><p class="text-xs font-bold">${CURRENT} me video nahi</p><button onclick="openCreate('${CURRENT}')" class="mt-3 px-6 py-2 rounded-full bg-white text-black font-bold text-xs">+ Banao</button></div>`:''}
 </div>
-
-<h3 class="font-bold text-sm flex justify-between">📱 Videos ${filtered?` - ${filtered.length} in ${filtered[0]?.category||'Filter'}`:''}<span class="text-[10px] opacity-60">${list.length}</span></h3>
-<div class="grid grid-cols-2 gap-3" id="videoGrid">
-${list.length?list.map(v=>`<div onclick="renderExport(${v.id})" class="aspect-[9/16] rounded-[16px] bg-white/5 border overflow-hidden relative"><video src="${v.footage}" class="w-full h-full object-cover" muted></video><div class="absolute top-2 left-2 text-[8px] px-2 py-0.5 rounded-full bg-black/70">${v.category} ${v.icon||''}</div><div class="absolute bottom-0 w-full p-2 bg-gradient-to-t from-black"><p class="text-[11px] font-bold">${v.title.slice(0,30)}</p><p class="text-[9px] opacity-70">${v.views} views</p></div></div>`).join(''):`<div class="col-span-2 p-8 text-center rounded-xl bg-white/5 border-dashed border"><p class="text-xs opacity-60">Abhi koi video nahi - Neeche + dabao aur banao!</p><button onclick="renderCreate()" class="mt-3 px-5 py-2 rounded-full bg-[#FF9933] text-black font-bold text-xs">+ Pehla Video Banao</button></div>`}
 </div>
-
-<div class="bg-green-500/10 border border-green-500/30 p-3 rounded-xl"><p class="text-xs font-bold text-green-400">✅ BUG FIXED - FINAL</p><p class="text-[11px] opacity-70 mt-1">Har category icon ab kaam karega • Click pe filter hoga • Full app screen pe ayega • 20 Category locked</p></div>
-</div>${nav('home')}`;
+<div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-black/95 border-t flex justify-around py-2.5"><button onclick="setFilter('All')" class="flex flex-col items-center"><span>🏠</span><span class="text-[9px]">Home</span></button><button onclick="openCreate('${CURRENT}')" class="w-14 h-14 -mt-7 rounded-full bg-gradient-to-r from-[#FF9933] to-[#138808] flex items-center justify-center text-black text-2xl font-black border-4 border-[#0F172A]">+</button><button onclick="backup()" class="flex flex-col items-center"><span>💾</span><span class="text-[9px]">Backup</span></button></div>`;
 }
-
-function filterCat(cat){
-let f = videos.filter(v=>v.category===cat);
-if(f.length===0){
-  // Demo video bana do us category ka taki khali na lage
-  alert(`${cat} me abhi video nahi hai - ek demo bana deta hu!`);
-  let v = {id:Date.now(),prompt:cat,category:cat,voice:'Hindi Male',duration:'30s',script:`${cat} ka viral sach!`,footage:'https://videos.pexels.com/video-files/3202634/3202634-hd_1080_1920_30fps.mp4',title:`${cat} - Viral Video`,views:Math.floor(Math.random()*500)+10,createdAt:new Date().toISOString()};
-  videos.unshift(v); saveAll();
-  f = [v];
-}
-renderHome(f);
-}
-
-function showSaved(){let f=videos.filter(v=>saved.includes(v.id)); renderHome(f.length?f:[]); if(f.length===0) alert('Koi saved nahi');}
-function showLiked(){let f=videos.filter(v=>liked.includes(v.id)); renderHome(f.length?f:[]); if(f.length===0) alert('Koi liked nahi');}
-
-function renderCreate(){
-document.getElementById('app').innerHTML=`<div class="p-4 space-y-4"><div
+function setFilter(c){CURRENT=c; SEARCH=''; renderHome();}
+function onSearch(q){SEARCH=q; CURRENT='All'; renderHome();}
+function openCreate(def){let t=prompt('Title likho:'); if(!t) return; let cat=prompt('Category: '+CATEGORIES.map(c=>c.id).join(', '), def!=='All'?def:'Bhakti'); if(!CATEGORIES.find(c=>c.id===cat)) cat='Motivation'; if(credits<=0){alert('Credit khatam!'); return;} videos.unshift({id:Date.now(),title:t,category:cat,views:10,likes:0,footage:SAMPLE[0].footage,thumb:`https://picsum.photos/seed/${Date.now()}/360/640`,createdAt:new Date().toISOString()}); credits--; save(); CURRENT=cat; renderHome(); alert('✅ Ban Gaya! '+cat+' me dekho - sabse upar!');}
+function openVideo(id){let v=videos.find(x=>x.id===id); document.getElementById('app').innerHTML=`<div class="p-3 space-y-3"><div class="flex justify-between"><button onclick="renderHome()" class="px-3 py-1.5 rounded-full bg-white/10 text-xs">← Back</button><button onclick="del(${v.id})" class="px-3 py-1.5 rounded-full bg-red-500/20 text-xs">Delete</button></div><div class="aspect-[9/16] bg-black rounded-2xl overflow-hidden w-[85%] mx-auto"><video src="${v.footage}" controls autoplay loop class="w-full h-full"></video></div><h2 class="font-bold text-sm">${v.title}</h2><div class="flex gap-2"><button onclick="like(${v.id})" class="flex-1 py-3 rounded-xl bg-red-500 text-xs font-bold">❤️ Like (${v.likes})</button><button onclick="dl(${v.id})" class="flex-1 py-3 rounded-xl bg-green-600 text-xs font-bold">⬇️ Download</button></div></div>`;}
+function like(id){let v=videos.find(x=>x.id===id); v.likes++; save(); openVideo(id);}
+function del(id){if(!confirm('Delete?')) return; videos=videos.filter(x=>x.id!==id); save(); renderHome();}
+function dl(id){let v=videos.find(x=>x.id===id); let a=document.createElement('a'); a.href=v.footage; a.target='_blank'; a.click();}
+function backup(){let b=new Blob([JSON.stringify(videos)],{type:'application/json'}); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='backup.json'; a.click();}
+renderHome();
+</script>
+</body>
+</html>
