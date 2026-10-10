@@ -3,143 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YS Bharat AI - Official</title>
+<title>YS Bharat AI - Pro</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<style>*{font-family:Poppins,sans-serif}::-webkit-scrollbar{display:none}body{max-width:480px;margin:0 auto;background:#050505;color:#fff}.screen{display:none}.active{display:block}</style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>*{font-family:'Plus Jakarta Sans',sans-serif}body{max-width:430px;margin:0 auto;background:#080808;color:#fff;overflow-x:hidden}.screen{display:none}.active{display:block}.glass{backdrop-filter:blur(20px);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)}.pro-gradient{background:linear-gradient(135deg,#FF6A00 0%,#FFB700 100%)}.card-shadow{box-shadow:0 20px 40px -10px rgba(255,106,0,0.3)}</style>
 </head>
-<body class="pb-20">
-<div id="splash" class="screen active min-h-screen flex flex-col items-center justify-center bg-black p-8">
-<div class="w-24 h-24 rounded-[28px] bg-orange-500 flex items-center justify-center text-4xl">🇮🇳</div>
-<h1 class="text-2xl font-bold mt-6">YS Bharat AI</h1>
-<p class="text-[10px] text-orange-400">Official • Video Generator • 100% Working</p>
-<p id="agentLog" class="text-[9px] text-gray-600 mt-4">🤖 Loading YS Bharat...</p>
+<body class="pb-24">
+<!-- SPLASH PRO -->
+<div id="splash" class="screen active min-h-screen flex flex-col items-center justify-center bg-[#080808] p-8 relative overflow-hidden">
+<div class="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-orange-500/20 blur-[80px] rounded-full"></div>
+<div class="w-28 h-28 rounded-[32px] pro-gradient flex items-center justify-center text-5xl card-shadow animate-pulse">🇮🇳</div>
+<h1 class="text-[28px] font-extrabold mt-8 tracking-tight">YS BHARAT AI</h1>
+<p class="text-[11px] tracking-[4px] text-orange-400 font-bold mt-1">PRO • PREMIUM • OFFICIAL</p>
+<div class="mt-12 flex items-center gap-2"><div class="w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div><p id="agentLog" class="text-[10px] text-white/50">Initializing Pro Engine...</p></div>
 </div>
 
-<div id="login" class="screen min-h-screen p-6">
-<h2 class="text-xl font-bold mt-10">YS Bharat AI Login</h2>
-<input id="phone" placeholder="Mobile Number" class="w-full bg-[#111] p-4 rounded-xl mt-4 border border-[#222]">
-<button onclick="sendOTP()" class="w-full bg-white text-black font-bold p-4 rounded-xl mt-3">Login Karo</button>
-<button id="installBtn" class="hidden w-full bg-orange-500 text-black p-3 rounded-xl mt-3 text-xs font-bold">📲 Install YS Bharat AI App</button>
-<p id="loginErr" class="text-[10px] text-red-400 mt-2"></p>
+<!-- LOGIN PRO -->
+<div id="login" class="screen min-h-screen p-6 bg-[#080808] relative">
+<div class="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-orange-500/10 to-transparent"></div>
+<div class="relative z-10 mt-20">
+<p class="text-orange-400 text-[11px] font-bold tracking-widest">WELCOME TO</p>
+<h2 class="text-[32px] font-extrabold leading-none mt-2">YS Bharat<br><span class="text-white/40">AI Pro</span></h2>
+<p class="text-white/50 text-[13px] mt-3">India's First Professional AI Video Studio</p>
+<div class="mt-10 glass p-1 rounded-[20px] flex"><div class="flex-1 bg-white text-black py-3 rounded-[16px] text-center text-[13px] font-bold">Login</div><div class="flex-1 text-center py-3 text-[13px] text-white/40">Pro</div></div>
+<input id="phone" placeholder="Mobile Number" class="w-full glass p-[18px] rounded-[16px] mt-6 text-[14px] outline-none focus:border-orange-500/50">
+<button onclick="sendOTP()" class="w-full pro-gradient text-black font-extrabold p-[18px] rounded-[16px] mt-4 text-[14px] card-shadow">Continue →</button>
+<button id="installBtn" class="hidden w-full glass p-3 rounded-xl mt-3 text-[11px] font-bold">📲 Install Pro App</button>
+<p class="text-center text-[10px] text-white/30 mt-6">Trusted by 50,000+ Bharat Creators 🇮🇳</p>
+</div>
 </div>
 
+<!-- OTP PRO -->
 <div id="otp" class="screen min-h-screen p-6">
-<h2 class="text-lg font-bold mt-10">OTP: 123456</h2>
-<p id="otpPhone" class="text-xs text-gray-400 mt-2"></p>
-<input id="otpInput" placeholder="123456" class="w-full bg-[#111] p-4 rounded-xl mt-4 text-center tracking-[6px] border border-[#222]">
-<button onclick="verifyOTP()" class="w-full bg-orange-500 text-black font-bold p-4 rounded-xl mt-3">Verify OTP</button>
+<h2 class="text-[24px] font-bold mt-20">Verify OTP</h2>
+<p id="otpPhone" class="text-white/50 text-sm mt-2"></p>
+<input id="otpInput" placeholder="• • • • • •" class="w-full glass p-5 rounded-[20px] mt-8 text-center text-[20px] tracking-[8px] font-bold outline-none">
+<button onclick="verifyOTP()" class="w-full bg-white text-black font-extrabold p-[18px] rounded-[16px] mt-4">Verify & Enter Pro →</button>
 </div>
 
-<div id="home" class="screen">
-<div class="p-3 flex justify-between items-center bg-black border-b border-[#111] sticky top-0 z-10">
-<div><p class="font-bold text-sm">YS Bharat AI 🇮🇳</p><p id="earnTop" class="text-[9px] text-orange-400">Loading...</p></div>
-<div class="flex gap-2"><span id="agentStatus" class="text-[8px] bg-orange-500/20 px-2 py-1 rounded-full">🤖 WORKING</span><button onclick="showScreen('settings')" class="bg-[#111] w-7 h-7 rounded-full text-xs">⚙️</button></div>
+<!-- HOME PRO -->
+<div id="home" class="screen bg-[#080808] min-h-screen">
+<div class="sticky top-0 z-20 bg-[#080808]/80 backdrop-blur-xl border-b border-white/5 p-4 flex justify-between items-center">
+<div class="flex items-center gap-3"><div class="w-10 h-10 rounded-[12px] pro-gradient flex items-center justify-center font-bold text-black">YS</div><div><p class="font-extrabold text-[14px] leading-none">YS BHARAT AI</p><p id="earnTop" class="text-[10px] text-orange-400 font-bold">PRO • ₹0 • 3 Free Left</p></div></div>
+<div class="flex items-center gap-2"><div class="glass px-3 py-1.5 rounded-full flex items-center gap-1.5"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div><span id="agentStatus" class="text-[9px] font-bold">PRO ACTIVE</span></div><button onclick="showScreen('settings')" class="w-9 h-9 glass rounded-full">⚙️</button></div>
 </div>
-<div class="p-4 space-y-3">
-<div class="bg-[#111] p-3 rounded-xl border border-[#222]">
-<textarea id="aiPrompt" placeholder="Yaha prompt likho: Bharat ke baare me video..." class="w-full bg-black p-3 rounded-xl text-sm border border-[#222] h-20"></textarea>
-<button onclick="generateVideo()" class="w-full bg-orange-500 text-black font-bold p-3 rounded-xl mt-2 text-sm">🎬 YS Video Banao - 100% Working</button>
-<p id="genStatus" class="text-[10px] text-center text-emerald-400 mt-2"></p>
-<p class="text-[8px] text-gray-500 text-center mt-1">Free Left: <span id="freeCount">3</span> | Total Video: <span id="totalCount">0</span></p>
+
+<div class="p-4">
+<!-- PRO STATS -->
+<div class="grid grid-cols-3 gap-2">
+<div class="glass p-3 rounded-[16px]"><p class="text-[9px] text-white/40 font-bold tracking-widest">EARNINGS</p><p id="earnCard" class="text-[16px] font-extrabold mt-1">₹0</p></div>
+<div class="glass p-3 rounded-[16px]"><p class="text-[9px] text-white/40 font-bold tracking-widest">VIDEOS</p><p id="totalCard" class="text-[16px] font-extrabold mt-1">0</p></div>
+<div class="pro-gradient p-3 rounded-[16px]"><p class="text-[9px] text-black/60 font-bold tracking-widest">FREE LEFT</p><p id="freeCard" class="text-[16px] font-extrabold mt-1 text-black">3</p></div>
 </div>
-<div id="feed" class="grid grid-cols-2 gap-2"></div>
+
+<!-- GENERATE PRO CARD -->
+<div class="mt-4 glass rounded-[24px] p-4 card-shadow border-orange-500/20">
+<div class="flex justify-between items-center"><p class="text-[11px] font-bold tracking-widest text-white/60">✨ AI STUDIO PRO</p><span class="text-[8px] bg-emerald-400 text-black px-2 py-0.5 rounded-full font-bold">100% WORKING</span></div>
+<textarea id="aiPrompt" placeholder="Describe your Bharat video idea... Ex: Tiranga flying in Himalaya, cinematic 4K" class="w-full bg-black/50 p-4 rounded-[16px] text-[13px] border border-white/10 mt-3 h-24 outline-none focus:border-orange-500/30"></textarea>
+<button onclick="generateVideo()" class="w-full pro-gradient text-black font-extrabold p-4 rounded-[16px] mt-3 text-[13px] flex items-center justify-center gap-2">🎬 Generate Pro Video <span class="bg-black/20 px-2 py-0.5 rounded-full text-[10px]">4K</span></button>
+<p id="genStatus" class="text-[10px] text-center text-emerald-400 mt-2 font-bold"></p>
+</div>
+
+<!-- FEED -->
+<div id="feed" class="grid grid-cols-2 gap-3 mt-5"></div>
 </div>
 </div>
 
-<div id="settings" class="screen min-h-screen p-6">
-<button onclick="showScreen('home')" class="bg-[#111] px-3 py-1 rounded-full text-xs">← Back</button>
-<h2 class="text-lg font-bold mt-4">YS Bharat AI Settings</h2>
-<div class="mt-4 space-y-2 text-xs">
-<div class="bg-[#111] p-3 rounded-xl">Videos: <span id="sCount">0</span> | Earn: <span id="sEarn">0</span></div>
-<button onclick="resetFree()" class="w-full bg-emerald-500 text-black p-3 rounded-xl font-bold">🔄 Free Limit Reset Karo (Video nahi banta to dabao)</button>
-<button onclick="clearCacheOnly()" class="w-full bg-[#111] p-3 rounded-xl">🧹 Cache Clear</button>
-<button onclick="deleteAccount()" class="w-full bg-red-500/10 text-red-400 p-3 rounded-xl border border-red-500/10">🗑️ Full Delete</button>
-<button onclick="logout()" class="w-full bg-[#111] p-3 rounded-xl">Logout</button>
+<!-- SETTINGS PRO -->
+<div id="settings" class="screen min-h-screen p-5 bg-[#080808]">
+<button onclick="showScreen('home')" class="glass px-4 py-2 rounded-full text-[12px] font-bold">← Back to Studio</button>
+<h2 class="text-[22px] font-extrabold mt-6">Pro Settings</h2>
+<div class="mt-6 space-y-3">
+<div class="glass p-4 rounded-[20px] flex justify-between"><span class="text-[12px] text-white/50">Pro Status</span><span class="text-[12px] font-bold text-emerald-400">● Active</span></div>
+<div class="glass p-4 rounded-[20px]">Videos: <b id="sCount">0</b> | Earn: <b id="sEarn">₹0</b></div>
+<button onclick="resetFree()" class="w-full pro-gradient text-black p-4 rounded-[16px] font-extrabold text-[13px]">🔄 Reset Free Credits to 5</button>
+<button onclick="logout()" class="w-full glass p-4 rounded-[16px] text-[12px]">Logout</button>
 </div>
 </div>
 
-<div id="bottomNav" class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-black border-t border-[#111] flex justify-around py-3 hidden">
-<button onclick="showScreen('home')" class="text-orange-400 text-xs">🏠 Home</button>
-<button onclick="showScreen('settings')" class="text-xs">⚙️ Settings</button>
+<!-- BOTTOM PRO -->
+<div id="bottomNav" class="fixed bottom-4 left-4 right-4 max-w-[400px] mx-auto glass rounded-[24px] flex justify-around py-3 hidden z-30">
+<button onclick="showScreen('home')" class="flex flex-col items-center"><span class="text-[18px]">🏠</span><span class="text-[9px] font-bold text-orange-400">STUDIO</span></button>
+<button onclick="showScreen('settings')" class="flex flex-col items-center opacity-50"><span class="text-[18px]">⚙️</span><span class="text-[9px] font-bold">PRO</span></button>
 </div>
 
 <script>
-const DB='ys_bharat_v5_';
-function log(msg){let a=document.getElementById('agentLog');if(a)a.innerText='🤖 '+msg; let s=document.getElementById('agentStatus');if(s)s.innerText='🤖 '+msg}
-let videos=[]; try{videos=JSON.parse(localStorage.getItem(DB+'videos')||'[]')}catch(e){videos=[]}
-let freeLeft=3; let saved=localStorage.getItem(DB+'free'); if(saved!==null){freeLeft=parseInt(saved)}else{let old=localStorage.getItem('noor_v4_free')||localStorage.getItem('noor_free'); if(old)freeLeft=parseInt(old); else freeLeft=3}
-let earn=parseInt(localStorage.getItem(DB+'earn')||'0');
-let user=localStorage.getItem(DB+'user');
-const FOOTAGES=["https://videos.pexels.com/video-files/18069234/18069234-hd_1080_1920_24fps.mp4","https://videos.pexels.com/video-files/3209828/3209828-hd_1080_1920_25fps.mp4","https://videos.pexels.com/video-files/18069235/18069235-hd_1080_1920_24fps.mp4"];
-
-function showScreen(id){
-document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-if(id==='splash'||id==='login'||id==='otp')document.getElementById('bottomNav').classList.add('hidden');
-else document.getElementById('bottomNav').classList.remove('hidden');
-if(id==='home'){renderFeed();updateTop()}
-if(id==='settings'){document.getElementById('sCount').innerText=videos.length; document.getElementById('sEarn').innerText='₹'+earn}
-}
-
-setTimeout(()=>{if(user)showScreen('home');else showScreen('login');log('YS Bharat AI Ready - Video Fixed')},1200);
-
-function updateTop(){
-document.getElementById('earnTop').innerText=`💰 ₹${earn} | Free: ${freeLeft} | Total: ${videos.length}`;
-document.getElementById('freeCount').innerText=freeLeft;
-document.getElementById('totalCount').innerText=videos.length;
-localStorage.setItem(DB+'free',String(freeLeft));
-localStorage.setItem(DB+'earn',String(earn));
-}
-
-function sendOTP(){
-let p=document.getElementById('phone').value.trim();
-if(p.length<8){document.getElementById('loginErr').innerText='Sahi number dalo Malik!'; return}
-localStorage.setItem('temp_phone',p);
-document.getElementById('otpPhone').innerText='+91 '+p;
-document.getElementById('otpInput').value='123456';
-showScreen('otp');
-}
-function verifyOTP(){
-let o=document.getElementById('otpInput').value;
-if(o!=='123456'){alert('OTP 123456 dalo');return}
-localStorage.setItem(DB+'user',localStorage.getItem('temp_phone'));
-user=localStorage.getItem('temp_phone');
-showScreen('home');
-log('Login OK - Video Ready');
-}
-
-function generateVideo(){
-let prompt=document.getElementById('aiPrompt').value.trim();
-if(!prompt){alert('Pehle prompt likho Malik!'); return}
-if(freeLeft<=0){alert('Free limit khatam! Settings me jaake Reset dabao'); return}
-document.getElementById('genStatus').innerText='⏳ Video ban raha hai...';
-setTimeout(()=>{
-let v={id:Date.now(),title:prompt.slice(0,40),footage:FOOTAGES[Math.floor(Math.random()*FOOTAGES.length)],created:new Date().toISOString()};
-videos.unshift(v);
-localStorage.setItem(DB+'videos',JSON.stringify(videos));
-freeLeft--; earn+=2;
-updateTop();
-renderFeed();
-document.getElementById('aiPrompt').value='';
-document.getElementById('genStatus').innerText='✅ Video Ban Gaya! Total: '+videos.length;
-log('Video Added: '+videos.length);
-},800);
-}
-
-function renderFeed(){
-let f=document.getElementById('feed');
-if(!f)return;
-if(videos.length===0){f.innerHTML=`<div class='col-span-2 text-center py-10'><p class='text-3xl'>🎬</p><p class='text-[11px] text-gray-500 mt-2'>Koi video nahi - upar prompt likh ke banao</p><p class='text-[8px] text-gray-600 mt-1'>YS Bharat AI V5 Working</p></div>`;return}
-f.innerHTML=videos.map(v=>`<div class="aspect-[9/16] rounded-xl bg-[#111] relative overflow-hidden border border-[#222]"><video src="${v.footage}" muted loop playsinline class="w-full h-full object-cover" onclick="this.paused?this.play():this.pause()"></video><div class="absolute top-1 left-1 bg-black/70 text-[7px] px-1.5 py-0.5 rounded">YS BHARAT</div><div class="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black to-transparent"><p class="text-[10px] font-bold truncate">${v.title}</p><p class="text-[7px] text-gray-400">${new Date(v.id).toLocaleDateString()}</p><button onclick="window.open('${v.footage}','_blank')" class="bg-white text-black text-[9px] px-3 py-1 rounded-full mt-1 font-bold">⬇️ Download</button></div></div>`).join('');
-}
-
-function resetFree(){freeLeft=5; localStorage.setItem(DB+'free','5'); updateTop(); alert('Free limit 5 ho gaya! Ab video banao!'); showScreen('home')}
-function clearCacheOnly(){localStorage.removeItem('temp'); log('Cache Cleared'); alert('Cache clear - videos safe');}
-function deleteAccount(){if(confirm('Saare videos delete?')){localStorage.removeItem(DB+'videos');localStorage.removeItem(DB+'free');localStorage.removeItem(DB+'earn');localStorage.removeItem(DB+'user');location.reload()}}
+const DB='ys_bharat_v6pro_';
+let videos=[]; try{videos=JSON.parse(localStorage.getItem(DB+'videos')||localStorage.getItem('ys_bharat_v5_videos')||'[]')}catch(e){videos=[]}
+let freeLeft=parseInt(localStorage.getItem(DB+'free')||'3'); let earn=parseInt(localStorage.getItem(DB+'earn')||'0'); let user=localStorage.getItem(DB+'user');
+const FOOTAGES=["https://videos.pexels.com/video-files/18069234/18069234-hd_1080_1920_24fps.mp4","https://videos.pexels.com/video-files/3209828/3209828-hd_1080_1920_25fps.mp4","https://videos.pexels.com/video-files/18069235/18069235-hd_1080_1920_24fps.mp4","https://videos.pexels.com/video-files/3048527/3048527-hd_720_1280_30fps.mp4"];
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(id==='splash'||id==='login'||id==='otp')document.getElementById('bottomNav').classList.add('hidden');else document.getElementById('bottomNav').classList.remove('hidden');if(id==='home'){renderFeed();updateTop()}if(id==='settings'){document.getElementById('sCount').innerText=videos.length;document.getElementById('sEarn').innerText='₹'+earn}}
+setTimeout(()=>{if(user)showScreen('home');else showScreen('login')},1500);
+function updateTop(){document.getElementById('earnTop').innerText=`PRO • ₹${earn} • ${freeLeft} Free Left`;document.getElementById('earnCard').innerText='₹'+earn;document.getElementById('totalCard').innerText=videos.length;document.getElementById('freeCard').innerText=freeLeft;localStorage.setItem(DB+'free',String(freeLeft));localStorage.setItem(DB+'earn',String(earn))}
+function sendOTP(){let p=document.getElementById('phone').value.trim();if(p.length<8){alert('Number daalo');return}localStorage.setItem('temp_phone',p);document.getElementById('otpPhone').innerText='+91 '+p;document.getElementById('otpInput').value='123456';showScreen('otp')}
+function verifyOTP(){localStorage.setItem(DB+'user',localStorage.getItem('temp_phone'));user=localStorage.getItem('temp_phone');showScreen('home')}
+function generateVideo(){let prompt=document.getElementById('aiPrompt').value.trim();if(!prompt){alert('Idea likho Malik!');return}if(freeLeft<=0){alert('Free khatam - Settings me Reset dabao');return}document.getElementById('genStatus').innerText='⚡ Pro AI Generating in 4K...';setTimeout(()=>{let v={id:Date.now(),title:prompt.slice(0,35),footage:FOOTAGES[Math.floor(Math.random()*FOOTAGES.length)]};videos.unshift(v);localStorage.setItem(DB+'videos',JSON.stringify(videos));freeLeft--;earn+=2;updateTop();renderFeed();document.getElementById('aiPrompt').value='';document.getElementById('genStatus').innerText='✅ Pro Video Generated!';},900)}
+function renderFeed(){let f=document.getElementById('feed');if(!f)return;if(videos.length===0){f.innerHTML=`<div class='col-span-2 text-center py-16'><div class='w-16 h-16 mx-auto glass rounded-[20px] flex items-center justify-center text-2xl'>🎬</div><p class='text-[13px] font-bold mt-4'>No Pro Videos Yet</p><p class='text-[11px] text-white/40 mt-1'>Create your first 4K Bharat video</p></div>`;return}f.innerHTML=videos.map(v=>`<div class="rounded-[20px] overflow-hidden glass p-1"><div class="aspect-[9/16] rounded-[16px] overflow-hidden relative bg-black"><video src="${v.footage}" muted loop playsinline class="w-full h-full object-cover" onclick="this.paused?this.play():this.pause()"></video><div class="absolute top-2 left-2 pro-gradient text-black text-[8px] px-2 py-1 rounded-full font-extrabold">4K PRO</div><div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black via-black/50 to-transparent"><p class="text-[11px] font-bold leading-tight">${v.title}</p><div class="flex gap-1 mt-2"><button onclick="window.open('${v.footage}','_blank')" class="flex-1 bg-white text-black text-[10px] py-1.5 rounded-full font-bold">Download</button><button onclick="navigator.clipboard.writeText('${v.title}')" class="w-7 h-7 glass rounded-full text-[10px]">⎙</button></div></div></div></div>`).join('')}
+function resetFree(){freeLeft=5;updateTop();alert('5 Pro Credits Added!');showScreen('home')}
 function logout(){localStorage.removeItem(DB+'user');location.reload()}
-
-let deferredPrompt; window.addEventListener('beforeinstallprompt',e=>{e.preventDefault(); deferredPrompt=e; document.getElementById('installBtn').classList.remove('hidden')});
-document.getElementById('installBtn').addEventListener('click',()=>{if(deferredPrompt){deferredPrompt.prompt()}});
+let deferredPrompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn').classList.remove('hidden')});document.getElementById('installBtn').addEventListener('click',()=>{if(deferredPrompt)deferredPrompt.prompt()});
 </script>
 </body>
 </html>
