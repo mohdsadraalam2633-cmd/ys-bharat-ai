@@ -6,12 +6,19 @@
 <title>YS Bharat AI - Pro</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-<style>*{font-family:'Plus Jakarta Sans',sans-serif}body{max-width:430px;margin:0 auto;background:#080808;color:#fff;overflow-x:hidden}.screen{display:none}.active{display:block}.glass{backdrop-filter:blur(20px);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)}.pro-gradient{background:linear-gradient(135deg,#FF6A00 0%,#FFB700 100%)}.card-shadow{box-shadow:0 20px 40px -10px rgba(255,106,0,0.3)}
-</head><link rel="apple-touch-icon" href="icon.png">
+<style>
+*{font-family:'Plus Jakarta Sans',sans-serif}
+body{max-width:430px;margin:0 auto;background:#080808;color:#fff;overflow-x:hidden}
+.screen{display:none}.active{display:block}
+.glass{backdrop-filter:blur(20px);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)}
+.pro-gradient{background:linear-gradient(135deg,#FF6A00 0%,#FFB700 100%)}
+.card-shadow{box-shadow:0 20px 40px -10px rgba(255,106,0,0.3)}
+</style>
+<link rel="apple-touch-icon" href="icon.png">
 <link rel="manifest" href="manifest.json">
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}</script>
+</head>
 <body class="pb-24">
-<!-- SPLASH PRO -->
 <div id="splash" class="screen active min-h-screen flex flex-col items-center justify-center bg-[#080808] p-8 relative overflow-hidden">
 <div class="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-orange-500/20 blur-[80px] rounded-full"></div>
 <div class="w-28 h-28 rounded-[32px] pro-gradient flex items-center justify-center text-5xl card-shadow animate-pulse">🇮🇳</div>
@@ -19,8 +26,6 @@
 <p class="text-[11px] tracking-[4px] text-orange-400 font-bold mt-1">PRO • PREMIUM • OFFICIAL</p>
 <div class="mt-12 flex items-center gap-2"><div class="w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div><p id="agentLog" class="text-[10px] text-white/50">Initializing Pro Engine...</p></div>
 </div>
-
-<!-- LOGIN PRO -->
 <div id="login" class="screen min-h-screen p-6 bg-[#080808] relative">
 <div class="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-orange-500/10 to-transparent"></div>
 <div class="relative z-10 mt-20">
@@ -34,44 +39,32 @@
 <p class="text-center text-[10px] text-white/30 mt-6">Trusted by 50,000+ Bharat Creators 🇮🇳</p>
 </div>
 </div>
-
-<!-- OTP PRO -->
 <div id="otp" class="screen min-h-screen p-6">
 <h2 class="text-[24px] font-bold mt-20">Verify OTP</h2>
 <p id="otpPhone" class="text-white/50 text-sm mt-2"></p>
 <input id="otpInput" placeholder="• • • • • •" class="w-full glass p-5 rounded-[20px] mt-8 text-center text-[20px] tracking-[8px] font-bold outline-none">
 <button onclick="verifyOTP()" class="w-full bg-white text-black font-extrabold p-[18px] rounded-[16px] mt-4">Verify & Enter Pro →</button>
 </div>
-
-<!-- HOME PRO -->
 <div id="home" class="screen bg-[#080808] min-h-screen">
 <div class="sticky top-0 z-20 bg-[#080808]/80 backdrop-blur-xl border-b border-white/5 p-4 flex justify-between items-center">
 <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-[12px] pro-gradient flex items-center justify-center font-bold text-black">YS</div><div><p class="font-extrabold text-[14px] leading-none">YS BHARAT AI</p><p id="earnTop" class="text-[10px] text-orange-400 font-bold">PRO • ₹0 • 3 Free Left</p></div></div>
 <div class="flex items-center gap-2"><div class="glass px-3 py-1.5 rounded-full flex items-center gap-1.5"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div><span id="agentStatus" class="text-[9px] font-bold">PRO ACTIVE</span></div><button onclick="showScreen('settings')" class="w-9 h-9 glass rounded-full">⚙️</button></div>
 </div>
-
 <div class="p-4">
-<!-- PRO STATS -->
 <div class="grid grid-cols-3 gap-2">
 <div class="glass p-3 rounded-[16px]"><p class="text-[9px] text-white/40 font-bold tracking-widest">EARNINGS</p><p id="earnCard" class="text-[16px] font-extrabold mt-1">₹0</p></div>
 <div class="glass p-3 rounded-[16px]"><p class="text-[9px] text-white/40 font-bold tracking-widest">VIDEOS</p><p id="totalCard" class="text-[16px] font-extrabold mt-1">0</p></div>
 <div class="pro-gradient p-3 rounded-[16px]"><p class="text-[9px] text-black/60 font-bold tracking-widest">FREE LEFT</p><p id="freeCard" class="text-[16px] font-extrabold mt-1 text-black">3</p></div>
 </div>
-
-<!-- GENERATE PRO CARD -->
 <div class="mt-4 glass rounded-[24px] p-4 card-shadow border-orange-500/20">
 <div class="flex justify-between items-center"><p class="text-[11px] font-bold tracking-widest text-white/60">✨ AI STUDIO PRO</p><span class="text-[8px] bg-emerald-400 text-black px-2 py-0.5 rounded-full font-bold">100% WORKING</span></div>
 <textarea id="aiPrompt" placeholder="Describe your Bharat video idea... Ex: Tiranga flying in Himalaya, cinematic 4K" class="w-full bg-black/50 p-4 rounded-[16px] text-[13px] border border-white/10 mt-3 h-24 outline-none focus:border-orange-500/30"></textarea>
 <button onclick="generateVideo()" class="w-full pro-gradient text-black font-extrabold p-4 rounded-[16px] mt-3 text-[13px] flex items-center justify-center gap-2">🎬 Generate Pro Video <span class="bg-black/20 px-2 py-0.5 rounded-full text-[10px]">4K</span></button>
 <p id="genStatus" class="text-[10px] text-center text-emerald-400 mt-2 font-bold"></p>
 </div>
-
-<!-- FEED -->
 <div id="feed" class="grid grid-cols-2 gap-3 mt-5"></div>
 </div>
 </div>
-
-<!-- SETTINGS PRO -->
 <div id="settings" class="screen min-h-screen p-5 bg-[#080808]">
 <button onclick="showScreen('home')" class="glass px-4 py-2 rounded-full text-[12px] font-bold">← Back to Studio</button>
 <h2 class="text-[22px] font-extrabold mt-6">Pro Settings</h2>
@@ -82,13 +75,10 @@
 <button onclick="logout()" class="w-full glass p-4 rounded-[16px] text-[12px]">Logout</button>
 </div>
 </div>
-
-<!-- BOTTOM PRO -->
 <div id="bottomNav" class="fixed bottom-4 left-4 right-4 max-w-[400px] mx-auto glass rounded-[24px] flex justify-around py-3 hidden z-30">
 <button onclick="showScreen('home')" class="flex flex-col items-center"><span class="text-[18px]">🏠</span><span class="text-[9px] font-bold text-orange-400">STUDIO</span></button>
 <button onclick="showScreen('settings')" class="flex flex-col items-center opacity-50"><span class="text-[18px]">⚙️</span><span class="text-[9px] font-bold">PRO</span></button>
 </div>
-
 <script>
 const DB='ys_bharat_v6pro_';
 let videos=[]; try{videos=JSON.parse(localStorage.getItem(DB+'videos')||localStorage.getItem('ys_bharat_v5_videos')||'[]')}catch(e){videos=[]}
