@@ -1,2 +1,52 @@
-
-{"name":"YS Bharat AI","short_name":"YS Bharat AI","start_url":".","display":"standalone","background_color":"#0F172A","theme_color":"#FF9933","icons":[{"src":"icon.png","sizes":"512x512","type":"image/png"}]}
+{
+  "name": "YS Bharat AI Pro - Bharat Ka AI Studio",
+  "short_name": "YS Bharat AI",
+  "description": "India's First Professional AI Video Studio - Create 4K Bharat Videos in 5 Seconds",
+  "start_url": ".",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "portrait",
+  "background_color": "#080808",
+  "theme_color": "#FF6A00",
+  "categories": ["photo", "video", "entertainment", "creativity"],
+  "lang": "hi-IN",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create Video",
+      "short_name": "Create",
+      "description": "Create new AI video",
+      "url": ".",
+      "icons": [{ "src": "icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "My Earnings",
+      "short_name": "Earnings",
+      "description": "Check earnings",
+      "url": ".",
+      "icons": [{ "src": "icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
